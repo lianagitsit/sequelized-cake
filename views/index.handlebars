@@ -1,0 +1,43 @@
+<div class="jumbotron text-center">
+    <h1>Let Them Eat Cake</h1>
+</div>
+
+<div class="container">
+    <div class="row text-center">
+        <form class="cake-form">
+            <div class="form-group">
+                <label for="cake">Cake:</label>
+                <input type="text" id="cake" name="cake-name">
+            </div>
+            <button class="btn btn-info" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-md-6">
+            <h3>Cakes to Eat</h3>
+            <ul id="cakes-to-eat">
+                {{#each cakes}} {{#unless eaten}}
+                <li>
+                    {{cake_name}}
+                    <button class="btn btn-xs btn-success eat-it" data-id="{{id}}">Eat</button>
+                    <button class="btn btn-xs btn-danger delete-it" data-id="{{id}}">Delete</button>
+                </li>
+                {{/unless}} {{/each}}
+            </ul>
+        </div>
+
+        <div class="col-md-6">
+            <h3>Eaten Cakes</h3>
+            <ul id="eaten-cakes">
+                {{#each cakes}} {{#if eaten}}
+                <li>
+                    {{cake_name}}
+                    <button class="btn btn-xs btn-danger delete-it" data-id="{{id}}">Delete</button>
+                </li>
+                {{/if}} {{/each}}
+            </ul>
+        </div>
+    </div>
+
+</div>
