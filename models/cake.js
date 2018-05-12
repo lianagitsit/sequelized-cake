@@ -2,11 +2,11 @@
 module.exports = (sequelize, DataTypes) => {
   var Cake = sequelize.define('Cake', {
     cake_name: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
     eaten: {
-      type: Sequelize.BOOLEAN,
+      type: DataTypes.BOOLEAN,
       defaultValue: false
     }
   }, {});
