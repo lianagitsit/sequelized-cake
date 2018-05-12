@@ -20,7 +20,7 @@
                 {{#each cakes}} {{#unless eaten}}
                 <li>
                     {{cake_name}}
-                    <button class="btn btn-xs btn-success eat-it" data-id="{{id}}">Eat</button>
+                    <button class="btn btn-xs btn-success eat-it" data-id="{{id}}" data-cake_name="{{cake_name}}">Eat</button>
                     <button class="btn btn-xs btn-danger delete-it" data-id="{{id}}">Delete</button>
                 </li>
                 {{/unless}} {{/each}}

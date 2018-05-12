@@ -5,7 +5,10 @@ var db = require("../models");
 
 router.get("/", (req, res) => {
     db.Cake.findAll().then( dbCake => {
-        res.render("index", dbCake);
+        var cakeObj = {
+            cakes: dbCake 
+        }
+        res.render("index", cakeObj);
     })
 });
 
@@ -30,7 +33,7 @@ router.put("/api/cakes/:id", (req, res) => {
             id: req.params.id
         }
     }).then( dbCake => {
-        if (result.changedRows === 0){
+        if (res.changedRows === 0){
             return res.status(404).end();
         } else {
             res.status(200).end();
@@ -41,16 +44,16 @@ router.put("/api/cakes/:id", (req, res) => {
 router.delete("/api/cakes/:id", (req, res) => {
     db.Cake.destroy({
         where: {
-            id: req.body.id
+            id: req.params.id
         }
     }).then( dbCake => {
-        if (result.affectedRows === 0){
+        if (res.affectedRows === 0){
             return res.status(404).end();
         } else {
             res.status(200).end();
         }
     }); 
-    
+
 });
 
 module.exports = router;

@@ -18,7 +18,10 @@ $(function(){
 
     $(document).on("click", ".eat-it", event => {
         var id = event.target.dataset.id;
+        var thisCake = event.target.dataset.cake_name;
+
         var newCakeState = {
+            cake_name: thisCake,
             eaten: 1
         }
         console.log(id);
